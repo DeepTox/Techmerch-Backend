@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController    // This means that this class is a Controller
-@RequestMapping(path="/api")
+@RequestMapping(path="/api-product")
 @CrossOrigin(origins = "*",allowedHeaders="*")
 public class ProductController {
 
@@ -23,6 +23,11 @@ public class ProductController {
     public @ResponseBody
     List<Product> getAllProducts() {
         return (List<Product>) productRepository.findAll();
+    }
+    @RequestMapping(path="/products/{categoryId}",method= RequestMethod.GET)
+    public @ResponseBody
+    List<Product> getAllProductsByCategory(@PathVariable (value = "categoryId") Long categoryId) {
+        return (List<Product>) productRepository.findAllByCategory(categoryId);
     }
     @RequestMapping(value = "/delete/{productId}", method = RequestMethod.DELETE)
     public void deleteProduct(@PathVariable (value = "productId") Long productId){
