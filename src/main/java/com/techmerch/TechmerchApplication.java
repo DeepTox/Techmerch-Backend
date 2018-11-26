@@ -1,4 +1,4 @@
-package com.techmerch.techmerch;
+package com.techmerch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

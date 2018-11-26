@@ -1,6 +1,8 @@
-package com.techmerch.techmerch;
+package com.techmerch.controller;
 
 
+import com.techmerch.model.Category;
+import com.techmerch.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,6 @@ public class CategoryController {
     @RequestMapping(path="/categories",method= RequestMethod.GET)
     public @ResponseBody
     List<Category> getAllCategories() {
-        return (List<Category>) categoryRepository.findAll();
+        return categoryRepository.findAll();
     }
 }

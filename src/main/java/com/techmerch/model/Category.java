@@ -1,4 +1,4 @@
-package com.techmerch.techmerch;
+package com.techmerch.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

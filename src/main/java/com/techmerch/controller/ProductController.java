@@ -1,5 +1,7 @@
-package com.techmerch.techmerch;
+package com.techmerch.controller;
 
+import com.techmerch.model.Product;
+import com.techmerch.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,6 @@
-package com.techmerch.techmerch;
+package com.techmerch.model;
+
+
 
 import javax.persistence.*;
 import java.io.Serializable;
