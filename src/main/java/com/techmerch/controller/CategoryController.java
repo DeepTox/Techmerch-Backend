@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController    // This means that this class is a Controller
-@RequestMapping(path="/api-category")
+@RequestMapping(path="/api")
 @CrossOrigin(origins = "*",allowedHeaders="*")
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
 
     @RequestMapping(path="/categories",method= RequestMethod.GET)
-    public @ResponseBody
-    List<Category> getAllCategories() {
+    public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
 }

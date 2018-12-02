@@ -13,4 +13,6 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product,Long> {
     @Query(value = "select * from db_techmerch.products where category_id = :categoryId", nativeQuery=true)
     List<Product> findAllByCategory(@Param("categoryId") Long categoryId);
+    @Query(value = "select * from db_techmerch.products where subcategory_id = :subcategoryId", nativeQuery=true)
+    List<Product> findAllBySubCategory(@Param("subcategoryId") Long subcategoryId);
 }

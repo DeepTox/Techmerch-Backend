@@ -21,8 +21,13 @@ public class Product implements Serializable {
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category productCategory;
+    @ManyToOne
+    @JoinColumn(name = "subcategoryId")
+    private SubCategory productSubCategory;
 
     private String productImgurl;
+
+    private Boolean productAvailability;
 
 
     public Long getProductId() {
@@ -73,15 +78,38 @@ public class Product implements Serializable {
     public void setImgUrl(String imgurl) {
         this.productImgurl = imgurl;
     }
+
+    public SubCategory getProductSubCategory() {
+        return productSubCategory;
+    }
+
+    public void setProductSubCategory(SubCategory productSubCategory) {
+        this.productSubCategory = productSubCategory;
+    }
+
+    public void setProductImgurl(String productImgurl) {
+        this.productImgurl = productImgurl;
+    }
+
+    public Boolean getProductAvailability() {
+        return productAvailability;
+    }
+
+    public void setProductAvailability(Boolean productAvailability) {
+        this.productAvailability = productAvailability;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + productId +
+                "productId=" + productId +
                 ", productName='" + productName + '\'' +
-                ", productPrice='" + productPrice + '\'' +
-                ", productImgurl='" + productImgurl + '\'' +
+                ", productPrice=" + productPrice +
                 ", productDescription='" + productDescription + '\'' +
-                ", productCategory='" + productCategory + '\'' +
+                ", productCategory=" + productCategory +
+                ", productSubCategory=" + productSubCategory +
+                ", productImgurl='" + productImgurl + '\'' +
+                ", productAvailability=" + productAvailability +
                 '}';
     }
 }

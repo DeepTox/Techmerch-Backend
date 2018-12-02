@@ -14,9 +14,10 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
-
     private String categoryName;
-
+    @OneToMany(mappedBy = "mainCategory")
+    @JsonIgnore
+    private List<SubCategory> subCategories;
     @OneToMany(mappedBy = "productCategory")
     @JsonIgnore
     private List<Product> products;
@@ -35,6 +36,14 @@ public class Category implements Serializable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 
     public List<Product> getProducts() {
