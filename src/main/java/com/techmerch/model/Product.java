@@ -3,6 +3,8 @@ package com.techmerch.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 @Entity
@@ -28,7 +30,12 @@ public class Product implements Serializable {
     private String productImgurl;
 
     private Boolean productAvailability;
-
+    @Column(columnDefinition = "double(2,1) default '0.0'")
+    private Double productRate;
+    @Column(columnDefinition = "int(3) default '0'")
+    @Min(0)
+    @Max(100)
+    private int productDiscount;
 
     public Long getProductId() {
         return productId;
@@ -99,6 +106,22 @@ public class Product implements Serializable {
         this.productAvailability = productAvailability;
     }
 
+    public Double getProductRate() {
+        return productRate;
+    }
+
+    public void setProductRate(Double productRate) {
+        this.productRate = productRate;
+    }
+
+    public int getProductDiscount() {
+        return productDiscount;
+    }
+
+    public void setProductDiscount(int productDiscount) {
+        this.productDiscount = productDiscount;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -110,6 +133,8 @@ public class Product implements Serializable {
                 ", productSubCategory=" + productSubCategory +
                 ", productImgurl='" + productImgurl + '\'' +
                 ", productAvailability=" + productAvailability +
+                ", productRate=" + productRate +
+                ", productDiscount=" + productDiscount +
                 '}';
     }
 }

@@ -23,7 +23,7 @@ public class ProductController {
     // Get products
     @RequestMapping(path="/products",method= RequestMethod.GET)
     public List<Product> getAllProducts() {
-        return (List<Product>) productRepository.findAll();
+        return  productRepository.findAll();
     }
 
     //Get products by category
